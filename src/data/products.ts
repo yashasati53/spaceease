@@ -144,10 +144,10 @@ export const products: Product[] = [
   {
     id: "we-2",
     name: "Laptop Stand",
-    price: 1200,
-    imageUrl: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=800&q=80",
+    price: 1299,
+    imageUrl: "/Laptop Stand.jpeg",
     category: "Workspace Essentials",
-    description: "Ergonomic aluminum laptop stand to improve your working posture.",
+    description: "A sleek rental-friendly laptop stand designed to improve posture, enhance laptop airflow, and create a clean modern workspace. Material: Aluminum alloy.",
     stock: 40
   },
   {
