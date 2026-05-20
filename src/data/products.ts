@@ -183,7 +183,7 @@ export const products: Product[] = [
     id: "bo-2",
     name: "Soap Dispenser Set",
     price: 1100,
-    imageUrl: "https://images.unsplash.com/photo-1556909190-eccf4d361251?auto=format&fit=crop&w=800&q=80",
+    imageUrl: "/soap-dispenser.png",
     category: "Bathroom Organizer",
     description: "Elegant refillable soap and lotion dispenser set.",
     stock: 30
