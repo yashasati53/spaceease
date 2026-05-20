@@ -14,6 +14,11 @@ export interface Product {
   description: string;
   stock: number;
   originalPrice?: number;
+  material?: string;
+  benefits?: string[];
+  usageInfo?: string;
+  careInstructions?: string;
+  deliveryDetails?: string;
 }
 
 export const products: Product[] = [
@@ -97,49 +102,95 @@ export const products: Product[] = [
   {
     id: "fu-1",
     name: "Compact Study Table",
-    price: 6500,
-    imageUrl: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=800&q=80",
+    price: 4999,
+    originalPrice: 6500,
+    imageUrl: "/Compact study table.jpeg",
     category: "Furniture",
     description: "A sleek, compact study table that fits easily into tight apartment corners.",
-    stock: 12
+    stock: 12,
+    material: "wood with matte finish",
+    benefits: [
+      "Space-saving design for compact homes",
+      "Functional storage and work area",
+      "Modern minimalist aesthetic"
+    ],
+    usageInfo: "Ideal for study rooms, bedrooms, or home offices.",
+    careInstructions: "Wipe clean with dry cloth. Avoid excess water exposure."
   },
   {
     id: "fu-2",
     name: "Storage Ottoman",
-    price: 3800,
-    imageUrl: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80",
+    price: 3499,
+    originalPrice: 3800,
+    imageUrl: "/Storage Ottoman.jpeg",
     category: "Furniture",
     description: "A comfortable seating ottoman with a hidden storage compartment.",
-    stock: 18
+    stock: 18,
+    material: "Upholstered fabric with wooden frame",
+    benefits: [
+      "Dual-purpose seating and hidden storage",
+      "Helps reduce clutter",
+      "Adds comfort and texture to interiors"
+    ],
+    usageInfo: "Can store blankets, cushions, books, or miscellaneous items.",
+    careInstructions: "Vacuum fabric regularly. Spot clean stains immediately."
   },
   {
     id: "fu-3",
     name: "Side Table",
-    price: 2800,
-    imageUrl: "https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&w=800&q=80",
+    price: 2499,
+    originalPrice: 2800,
+    imageUrl: "/Side Table.jpeg",
     category: "Furniture",
     description: "Minimalist side table for your living room or bedroom.",
-    stock: 22
+    stock: 22,
+    material: "Solid wood",
+    benefits: [
+      "Compact and versatile",
+      "Ideal for décor styling and storage",
+      "Enhances living room functionality"
+    ],
+    usageInfo: "Perfect beside sofas, beds, or reading corners.",
+    careInstructions: "Clean with dry cloth. Avoid sharp or hot objects directly on surface."
   },
   {
     id: "fu-4",
     name: "Modular Shelf",
-    price: 5500,
-    imageUrl: "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=800&q=80",
+    price: 3999,
+    originalPrice: 5500,
+    imageUrl: "/Modular shelf.jpeg",
     category: "Furniture",
     description: "Build-it-yourself modular shelving unit for displaying books and decor.",
-    stock: 8
+    stock: 8,
+    material: "wood with laminate finish",
+    benefits: [
+      "Flexible storage solution",
+      "Modern open-shelf aesthetic",
+      "Ideal for organizing books, décor, and essentials"
+    ],
+    usageInfo: "Suitable for living rooms, offices, and bedrooms.",
+    careInstructions: "Dust regularly with soft cloth."
   },
 
   // 4. Workspace Essentials
   {
     id: "we-1",
     name: "LED Desk Lamp",
-    price: 1500,
-    imageUrl: "https://images.unsplash.com/photo-1585771724684-38269d6639fd?auto=format&fit=crop&w=800&q=80",
+    price: 899,
+    originalPrice: 1500,
+    imageUrl: "/LED desk Lamp.jpeg",
     category: "Workspace Essentials",
     description: "Energy-efficient LED desk lamp with adjustable brightness.",
-    stock: 35
+    stock: 35,
+    material: "ABS body with LED lighting",
+    benefits: [
+      "Energy-efficient lighting",
+      "Adjustable brightness and angle",
+      "Reduces eye strain during work/study"
+    ],
+    usageInfo: "Ideal for study desks, offices, and bedside tables.",
+    careInstructions: "Use dry cloth for cleaning. Avoid water contact.",
+    deliveryDetails: "Delivered within 3–5 business days."
   },
   {
     id: "we-2",
@@ -147,14 +198,22 @@ export const products: Product[] = [
     price: 1299,
     imageUrl: "/Laptop Stand.jpeg",
     category: "Workspace Essentials",
-    description: "A sleek rental-friendly laptop stand designed to improve posture, enhance laptop airflow, and create a clean modern workspace. Material: Aluminum alloy.",
-    stock: 40
+    description: "A sleek rental-friendly laptop stand designed to improve posture, enhance laptop airflow, and create a clean modern workspace.",
+    stock: 40,
+    material: "Aluminum alloy",
+    benefits: [
+      "Improves posture and viewing angle",
+      "Enhances laptop airflow and cooling",
+      "Creates a clean, modern workspace"
+    ],
+    usageInfo: "Ideal for laptops up to 15.6 inches.",
+    careInstructions: "Wipe with a microfibre cloth."
   },
   {
     id: "we-3",
     name: "Desk Organizer",
     price: 850,
-    imageUrl: "https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?auto=format&fit=crop&w=800&q=80",
+    imageUrl: "/Desk organizer.jpeg",
     category: "Workspace Essentials",
     description: "Keep your pens, notes, and accessories tidy with this sleek organizer.",
     stock: 50
@@ -163,7 +222,7 @@ export const products: Product[] = [
     id: "we-4",
     name: "Ergonomic Chair",
     price: 9500,
-    imageUrl: "https://images.unsplash.com/photo-1563861826100-9cb868fdbe1c?auto=format&fit=crop&w=800&q=80",
+    imageUrl: "/Ergonomic chair.jpeg",
     category: "Workspace Essentials",
     description: "Highly adjustable ergonomic chair for long hours of comfortable work.",
     stock: 15

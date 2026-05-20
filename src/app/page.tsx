@@ -13,11 +13,11 @@ const categories: { name: Category; imageUrl: string; }[] = [
   },
   {
     name: "Furniture",
-    imageUrl: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=600&q=80",
+    imageUrl: "/Storage Ottoman.jpeg",
   },
   {
     name: "Workspace Essentials",
-    imageUrl: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=600&q=80",
+    imageUrl: "/Ergonomic chair.jpeg",
   },
   {
     name: "Bathroom Organizer",

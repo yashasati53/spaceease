@@ -85,6 +85,57 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
               </div>
             ))}
           </div>
+
+          {/* Accordion Details */}
+          <div className="product-details-accordion">
+            <details className="details-block" open>
+              <summary className="details-summary">Product Details</summary>
+              <div className="details-content">
+                {product.material && <p style={{ marginBottom: "0.5rem" }}><strong>Material:</strong> {product.material}</p>}
+                <p style={{ marginBottom: "0.5rem" }}><strong>Category:</strong> {product.category}</p>
+                <p><strong>Product ID:</strong> {product.id.toUpperCase()}</p>
+              </div>
+            </details>
+
+            {product.benefits && product.benefits.length > 0 && (
+              <details className="details-block">
+                <summary className="details-summary">Key Benefits</summary>
+                <div className="details-content">
+                  <ul style={{ margin: 0, paddingLeft: "1.25rem" }}>
+                    {product.benefits.map((benefit, index) => (
+                      <li key={index} style={{ marginBottom: "0.4rem" }}>{benefit}</li>
+                    ))}
+                  </ul>
+                </div>
+              </details>
+            )}
+
+            {(product.usageInfo || product.careInstructions) && (
+              <details className="details-block">
+                <summary className="details-summary">Usage & Care</summary>
+                <div className="details-content">
+                  {product.usageInfo && (
+                    <p style={{ marginBottom: "0.75rem" }}>
+                      <strong>How to use:</strong> {product.usageInfo}
+                    </p>
+                  )}
+                  {product.careInstructions && (
+                    <p>
+                      <strong>Care instructions:</strong> {product.careInstructions}
+                    </p>
+                  )}
+                </div>
+              </details>
+            )}
+
+            <details className="details-block">
+              <summary className="details-summary">Shipping & Returns</summary>
+              <div className="details-content">
+                <p style={{ marginBottom: "0.5rem" }}>{product.deliveryDetails || "Delivered within 3–5 business days."}</p>
+                <p>Enjoy free carbon-neutral shipping on orders over ₹999. Easy 30-day hassle-free returns. Packaged in 100% recyclable honeycomb cardboard.</p>
+              </div>
+            </details>
+          </div>
         </div>
       </div>
     </div>

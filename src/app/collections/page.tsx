@@ -7,31 +7,31 @@ const collections: { name: Category; tag: string; description: string; heroImage
     name: "Space Organization",
     tag: "Best Sellers",
     description: "Declutter every corner of your home with our best-loved storage solutions.",
-    heroImage: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/foldable-storage-box.jpg",
   },
   {
     name: "Home Décor",
     tag: "New Season",
     description: "Add warmth and personality to your living space with artful, minimal pieces.",
-    heroImage: "https://images.unsplash.com/photo-1513519245088-0e12902e35ca?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/minimal-wall-art.jpg",
   },
   {
     name: "Furniture",
     tag: "Compact Living",
     description: "Smart furniture designed for smaller footprints, without compromising on style.",
-    heroImage: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/Compact study table.jpeg",
   },
   {
     name: "Workspace Essentials",
     tag: "Work From Home",
     description: "Everything you need for a productive, comfortable, and stylish home office.",
-    heroImage: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/Ergonomic chair.jpeg",
   },
   {
     name: "Bathroom Organizer",
     tag: "Daily Essentials",
     description: "Transform your bathroom into a calm, organised sanctuary.",
-    heroImage: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/bathroom organizer.jpeg",
   },
 ];
 
