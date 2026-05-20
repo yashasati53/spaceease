@@ -38,12 +38,12 @@ export default function CartPage() {
   }
 
   return (
-    <div style={{ maxWidth: "1440px", margin: "0 auto", padding: "4rem 2rem 6rem" }}>
+    <div style={{ maxWidth: "1440px", margin: "0 auto", padding: "3rem 1.5rem 6rem" }}>
       <h1 style={{ fontSize: "2.2rem", fontWeight: 100, marginBottom: "3rem", borderBottom: "1px solid #e8e8e8", paddingBottom: "1.5rem" }}>
         Shopping Bag
       </h1>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr", gap: "5rem", alignItems: "start" }}>
+      <div className="cart-layout-grid" style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr", gap: "5rem", alignItems: "start" }}>
         {/* Left column — Items */}
         <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
           {cartItems.map((item) => (

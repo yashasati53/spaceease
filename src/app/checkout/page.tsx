@@ -21,7 +21,7 @@ export default function CheckoutPage() {
     <div className="container" style={{ padding: "4rem 2rem", minHeight: "80vh" }}>
       <h1 className="heading-xl" style={{ marginBottom: "3rem", textAlign: "center" }}>Secure Checkout</h1>
       
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem" }}>
+      <div className="checkout-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem" }}>
         {/* Shipping & Payment Form */}
         <div>
           <h2 className="heading-md" style={{ marginBottom: "2rem" }}>1. Shipping Details</h2>

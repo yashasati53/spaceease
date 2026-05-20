@@ -29,7 +29,7 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
         <span>{product.name}</span>
       </nav>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", alignItems: "start" }}>
+      <div className="product-detail-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", alignItems: "start" }}>
         {/* Left — Image */}
         <div style={{ position: "relative", aspectRatio: "3/4", overflow: "hidden", backgroundColor: "#f5f5f5" }}>
           <Image src={product.imageUrl} alt={product.name} fill style={{ objectFit: "cover" }} sizes="50vw" />

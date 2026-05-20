@@ -93,7 +93,7 @@ export default function Home() {
       </div>
 
       {/* ── SHOP BY CATEGORY ── */}
-      <section className="section" style={{ padding: "3rem 2rem" }}>
+      <section className="section" style={{ padding: "3rem 1.5rem" }}>
         <div style={{ maxWidth: "1440px", margin: "0 auto" }}>
           <div className="section-header">
             <h2 className="section-title">Shop by Category</h2>
@@ -117,7 +117,7 @@ export default function Home() {
       </section>
 
       {/* ── FEATURED PRODUCTS ── */}
-      <section className="section" style={{ padding: "3rem 2rem", backgroundColor: "#faf9f8" }}>
+      <section className="section" style={{ padding: "3rem 1.5rem", backgroundColor: "#faf9f8" }}>
         <div style={{ maxWidth: "1440px", margin: "0 auto" }}>
           <div className="section-header">
             <h2 className="section-title">New Arrivals</h2>

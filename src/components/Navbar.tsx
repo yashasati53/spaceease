@@ -9,6 +9,7 @@ export default function Navbar() {
   const { cartCount } = useCart();
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const router = useRouter();
 
   const handleSearchSubmit = (e: React.FormEvent) => {
@@ -20,6 +21,8 @@ export default function Navbar() {
     }
   };
 
+  const closeMobileMenu = () => setIsMobileMenuOpen(false);
+
   return (
     <>
       {/* Announcement Bar */}
@@ -29,12 +32,23 @@ export default function Navbar() {
 
       <nav className="navbar">
         <div className="nav-content">
+          {/* Hamburger (mobile only) */}
+          <button
+            className="hamburger-btn"
+            aria-label="Open menu"
+            onClick={() => setIsMobileMenuOpen(true)}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
           {/* Logo */}
           <Link href="/" className="logo">
             SpaceEase
           </Link>
 
-          {/* Center Nav Links */}
+          {/* Center Nav Links (desktop) */}
           <div className="nav-links">
             <Link href="/products" className="nav-link">Shop</Link>
             <Link href="/new-arrivals" className="nav-link">New Arrivals</Link>
@@ -48,7 +62,7 @@ export default function Navbar() {
             {/* Search */}
             <div style={{ display: "flex", alignItems: "center", position: "relative" }}>
               {isSearchOpen && (
-                <form onSubmit={handleSearchSubmit} style={{ position: "absolute", right: "100%", marginRight: "0.5rem" }}>
+                <form onSubmit={handleSearchSubmit} style={{ position: "absolute", right: "100%", marginRight: "0.5rem", zIndex: 10 }}>
                   <input
                     type="text"
                     placeholder="Search products..."
@@ -61,14 +75,15 @@ export default function Navbar() {
                       border: "1px solid #e8e8e8",
                       outline: "none",
                       fontSize: "0.85rem",
-                      width: "200px"
+                      width: "180px",
+                      whiteSpace: "nowrap",
                     }}
                   />
                 </form>
               )}
-              <button 
-                className="icon-btn" 
-                aria-label="Search" 
+              <button
+                className="icon-btn"
+                aria-label="Search"
                 onClick={() => setIsSearchOpen(!isSearchOpen)}
                 style={{ background: "none", border: "none", cursor: "pointer", display: "flex", padding: 0 }}
               >
@@ -105,6 +120,28 @@ export default function Navbar() {
           </div>
         </div>
       </nav>
+
+      {/* Mobile Drawer Overlay */}
+      <div
+        className={`mobile-nav-overlay ${isMobileMenuOpen ? 'open' : ''}`}
+        onClick={closeMobileMenu}
+      />
+
+      {/* Mobile Drawer */}
+      <div className={`mobile-nav-drawer ${isMobileMenuOpen ? 'open' : ''}`}>
+        <div className="mobile-nav-header">
+          <span className="logo" style={{ fontSize: "1.1rem" }}>SpaceEase</span>
+          <button className="mobile-nav-close" onClick={closeMobileMenu} aria-label="Close menu">✕</button>
+        </div>
+        <nav className="mobile-nav-links">
+          <Link href="/products" className="mobile-nav-link" onClick={closeMobileMenu}>Shop</Link>
+          <Link href="/new-arrivals" className="mobile-nav-link" onClick={closeMobileMenu}>New Arrivals</Link>
+          <Link href="/collections" className="mobile-nav-link" onClick={closeMobileMenu}>Collections</Link>
+          <Link href="/about" className="mobile-nav-link" onClick={closeMobileMenu}>About Us</Link>
+          <Link href="/contact" className="mobile-nav-link" onClick={closeMobileMenu}>Contact</Link>
+          <Link href="/return-policy" className="mobile-nav-link" onClick={closeMobileMenu}>Return Policy</Link>
+        </nav>
+      </div>
     </>
   );
 }
