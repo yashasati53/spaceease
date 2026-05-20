@@ -2,9 +2,23 @@
 
 import Link from 'next/link';
 import { useCart } from '@/context/CartContext';
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function Navbar() {
   const { cartCount } = useCart();
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const router = useRouter();
+
+  const handleSearchSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      router.push(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
+      setIsSearchOpen(false);
+      setSearchQuery('');
+    }
+  };
 
   return (
     <>
@@ -32,9 +46,35 @@ export default function Navbar() {
           {/* Right Actions */}
           <div className="nav-actions">
             {/* Search */}
-            <Link href="/mock" className="icon-btn" aria-label="Search">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-            </Link>
+            <div style={{ display: "flex", alignItems: "center", position: "relative" }}>
+              {isSearchOpen && (
+                <form onSubmit={handleSearchSubmit} style={{ position: "absolute", right: "100%", marginRight: "0.5rem" }}>
+                  <input
+                    type="text"
+                    placeholder="Search products..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    autoFocus
+                    style={{
+                      padding: "0.4rem 0.8rem",
+                      borderRadius: "20px",
+                      border: "1px solid #e8e8e8",
+                      outline: "none",
+                      fontSize: "0.85rem",
+                      width: "200px"
+                    }}
+                  />
+                </form>
+              )}
+              <button 
+                className="icon-btn" 
+                aria-label="Search" 
+                onClick={() => setIsSearchOpen(!isSearchOpen)}
+                style={{ background: "none", border: "none", cursor: "pointer", display: "flex", padding: 0 }}
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              </button>
+            </div>
             {/* Account */}
             <Link href="/login" className="icon-btn" aria-label="Account">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
