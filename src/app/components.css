@@ -875,3 +875,10 @@
   margin-bottom: 0;
 }
 
+/* =====================
+   UTILITIES
+   ===================== */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+

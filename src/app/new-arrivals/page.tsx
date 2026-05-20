@@ -1,14 +1,21 @@
+"use client";
+
+import { useState } from "react";
 import ProductCard from "@/components/ProductCard";
 import Link from "next/link";
 import { products } from "@/data/products";
 
 export default function NewArrivalsPage() {
+  const [activeTab, setActiveTab] = useState("All");
+  
   // Treat the last 8 added products as "new arrivals"
-  const newArrivals = [...products].reverse().slice(0, 8);
+  const allNewArrivals = [...products].reverse().slice(0, 8);
+  const newArrivals = activeTab === "All" 
+    ? allNewArrivals 
+    : allNewArrivals.filter(p => p.category === activeTab);
 
   return (
     <div style={{ maxWidth: "1440px", margin: "0 auto", padding: "0 2rem 5rem" }}>
-
       {/* Page Header */}
       <div style={{
         padding: "4rem 0 2rem",
@@ -26,30 +33,42 @@ export default function NewArrivalsPage() {
         </p>
       </div>
 
-      {/* Filter bar (visual only) */}
-      <div style={{
-        display: "flex",
-        gap: "0",
-        marginBottom: "2.5rem",
-        borderBottom: "1px solid #e8e8e8",
-        overflowX: "auto",
-      }}>
-        {["All", "Space Organization", "Home Décor", "Furniture", "Workspace Essentials", "Bathroom Organizer"].map((filter, i) => (
-          <span key={filter} style={{
-            padding: "0.75rem 1.5rem",
-            fontSize: "0.78rem",
-            textTransform: "uppercase",
-            letterSpacing: "0.06em",
-            fontWeight: i === 0 ? 500 : 300,
-            color: i === 0 ? "#000" : "#737373",
-            borderBottom: i === 0 ? "2px solid #000" : "2px solid transparent",
-            cursor: "pointer",
-            whiteSpace: "nowrap",
-            transition: "all 0.15s",
-          }}>
-            {filter}
-          </span>
-        ))}
+      {/* Filter bar */}
+      <div 
+        className="hide-scrollbar"
+        style={{
+          display: "flex",
+          gap: "0",
+          marginBottom: "2.5rem",
+          borderBottom: "1px solid #e8e8e8",
+          overflowX: "auto",
+          scrollbarWidth: "none",
+          msOverflowStyle: "none",
+        }}
+      >
+        {["All", "Space Organization", "Home Décor", "Furniture", "Workspace Essentials", "Bathroom Organizer"].map((filter) => {
+          const isActive = activeTab === filter;
+          return (
+            <span 
+              key={filter} 
+              onClick={() => setActiveTab(filter)}
+              style={{
+                padding: "0.75rem 1.5rem",
+                fontSize: "0.78rem",
+                textTransform: "uppercase",
+                letterSpacing: "0.06em",
+                fontWeight: isActive ? 500 : 300,
+                color: isActive ? "#000" : "#737373",
+                borderBottom: isActive ? "2px solid #000" : "2px solid transparent",
+                cursor: "pointer",
+                whiteSpace: "nowrap",
+                transition: "all 0.15s",
+              }}
+            >
+              {filter}
+            </span>
+          );
+        })}
       </div>
 
       {/* Count + Sort */}
