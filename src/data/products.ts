@@ -174,7 +174,7 @@ export const products: Product[] = [
     id: "bo-1",
     name: "Bathroom Organizer",
     price: 1400,
-    imageUrl: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=800&q=80",
+    imageUrl: "/bathroom organizer.jpeg",
     category: "Bathroom Organizer",
     description: "Multi-purpose bathroom organizer caddy for your toiletries.",
     stock: 25
