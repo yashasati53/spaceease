@@ -77,7 +77,6 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
             {[
               { icon: "🚚", text: "Free delivery on orders above ₹999" },
               { icon: "↩", text: "Easy 30-day returns" },
-              { icon: "♻", text: "Eco-friendly materials" },
             ].map(item => (
               <div key={item.text} style={{ display: "flex", alignItems: "center", gap: "0.75rem", fontSize: "0.8rem", color: "#737373" }}>
                 <span>{item.icon}</span>
@@ -132,7 +131,6 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
               <summary className="details-summary">Shipping & Returns</summary>
               <div className="details-content">
                 <p style={{ marginBottom: "0.5rem" }}>{product.deliveryDetails || "Delivered within 3–5 business days."}</p>
-                <p>Enjoy free carbon-neutral shipping on orders over ₹999. Easy 30-day hassle-free returns. Packaged in 100% recyclable honeycomb cardboard.</p>
               </div>
             </details>
           </div>
