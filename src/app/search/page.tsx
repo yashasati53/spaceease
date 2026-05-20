@@ -4,10 +4,11 @@ import ProductCard from "@/components/ProductCard";
 export default async function SearchPage({
   searchParams,
 }: {
-  searchParams: Promise<{ q?: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
   const resolvedSearchParams = await searchParams;
-  const query = resolvedSearchParams.q || "";
+  const qParam = resolvedSearchParams.q;
+  const query = Array.isArray(qParam) ? qParam[0] : (qParam || "");
   const lowerQuery = query.toLowerCase();
 
   const searchResults = products.filter((product) => {
