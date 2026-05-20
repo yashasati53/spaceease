@@ -52,7 +52,6 @@ export default function Navbar() {
           <div className="nav-links">
             <Link href="/products" className="nav-link">Shop</Link>
             <Link href="/new-arrivals" className="nav-link">New Arrivals</Link>
-            <Link href="/collections" className="nav-link">Collections</Link>
             <Link href="/about" className="nav-link">About Us</Link>
             <Link href="/contact" className="nav-link">Contact</Link>
           </div>
@@ -136,7 +135,6 @@ export default function Navbar() {
         <nav className="mobile-nav-links">
           <Link href="/products" className="mobile-nav-link" onClick={closeMobileMenu}>Shop</Link>
           <Link href="/new-arrivals" className="mobile-nav-link" onClick={closeMobileMenu}>New Arrivals</Link>
-          <Link href="/collections" className="mobile-nav-link" onClick={closeMobileMenu}>Collections</Link>
           <Link href="/about" className="mobile-nav-link" onClick={closeMobileMenu}>About Us</Link>
           <Link href="/contact" className="mobile-nav-link" onClick={closeMobileMenu}>Contact</Link>
           <Link href="/return-policy" className="mobile-nav-link" onClick={closeMobileMenu}>Return Policy</Link>
