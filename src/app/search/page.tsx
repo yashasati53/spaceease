@@ -1,14 +1,13 @@
+"use client";
+
 import { products } from "@/data/products";
 import ProductCard from "@/components/ProductCard";
+import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 
-export default async function SearchPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
-}) {
-  const resolvedSearchParams = await searchParams;
-  const qParam = resolvedSearchParams.q;
-  const query = Array.isArray(qParam) ? qParam[0] : (qParam || "");
+function SearchResults() {
+  const searchParams = useSearchParams();
+  const query = searchParams.get("q") || "";
   const lowerQuery = query.toLowerCase();
 
   const searchResults = products.filter((product) => {
@@ -20,7 +19,7 @@ export default async function SearchPage({
   });
 
   return (
-    <div style={{ maxWidth: "1440px", margin: "0 auto", padding: "2rem 2rem 5rem" }}>
+    <>
       {/* Page Header */}
       <div style={{ borderBottom: "1px solid #e8e8e8", paddingBottom: "1.5rem", marginBottom: "3rem" }}>
         <h1 style={{ fontSize: "0.85rem", fontWeight: 400, textTransform: "uppercase", letterSpacing: "0.08em" }}>
@@ -58,6 +57,20 @@ export default async function SearchPage({
           </p>
         </div>
       )}
+    </>
+  );
+}
+
+export default function SearchPage() {
+  return (
+    <div style={{ maxWidth: "1440px", margin: "0 auto", padding: "2rem 2rem 5rem" }}>
+      <Suspense fallback={
+        <div style={{ padding: "4rem 0", textAlign: "center", fontSize: "1.2rem", fontWeight: 300 }}>
+          Loading search results...
+        </div>
+      }>
+        <SearchResults />
+      </Suspense>
     </div>
   );
 }
